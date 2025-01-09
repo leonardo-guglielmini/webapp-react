@@ -27,6 +27,7 @@ function Homepage(){
     
     return(
         <>
+        Homepage
         {movies.map(movie=>{
             return <li key={movie.id}>
                 <MovieCard movie={movie}></MovieCard>
