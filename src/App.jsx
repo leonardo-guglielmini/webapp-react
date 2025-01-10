@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router'
 import DefaultLayout from './layouts/DefaultLayout'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Homepage from './pages/Homepage'
 import Moviepage from "./pages/Moviepage"
