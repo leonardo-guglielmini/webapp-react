@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 import ReviewCard from "../components/Card/ReviewCard";
+import ReviewForm from "../components/Form/ReviewForm";
 
 function Moviepage(){
     
@@ -36,6 +37,7 @@ function Moviepage(){
             {reviews && reviews.map(review=>(
                 <ReviewCard review={review} key={review.id}></ReviewCard>
             ))}
+            <ReviewForm movieId={id}></ReviewForm>
             </> : <div>Loading...</div>
     )
 }
