@@ -10,17 +10,18 @@ function Moviepage(){
     const [movie, setMovie] = useState([])
     const {id} = useParams()
 
+    function fetchMovie() {
+        axios.get(`http://localhost:3000/api/movies/${id}`)
+        .then(res => {
+            setMovie(res.data)
+        })
+        .catch(err => {
+            console.error(err)
+        })
+    }
+
     useEffect(() => {
-        const fetchMovies = async () => {
-            try {
-                const res = await axios.get(`http://localhost:3000/api/movies/${id}`);
-                setMovie(res.data);
-            } 
-            catch (err) {
-                console.error(err);
-            }
-        };
-        fetchMovies();
+        fetchMovie()
     }, [id]);
 
     useEffect(() => {
@@ -37,7 +38,7 @@ function Moviepage(){
             {reviews && reviews.map(review=>(
                 <ReviewCard review={review} key={review.id}></ReviewCard>
             ))}
-            <ReviewForm movieId={id}></ReviewForm>
+            <ReviewForm movieId={id} onStoreReview={fetchMovie}></ReviewForm>
             </> : <div>Loading...</div>
     )
 }
