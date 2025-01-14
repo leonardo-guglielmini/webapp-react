@@ -3,6 +3,8 @@
 import {useState} from "react"
 import axios from "axios"
 
+import style from "./ReviewForm.module.css"
+
 function ReviewForm({movieId, onStoreReview = () =>{}}){
 
     const baseFormData = {
@@ -38,21 +40,20 @@ function ReviewForm({movieId, onStoreReview = () =>{}}){
     }
 
     return(
-        <>
-        <h5>Insert your review!</h5>
-        <div>
-            <form onSubmit={storeReview}>
-                <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="name" value={formData.name} onChange={onFormChange} required></input>
-                <label htmlFor="vote">Vote</label>
-                <input type="text" name="vote" id="vote" value={formData.vote} onChange={onFormChange} required></input>
-                <label htmlFor="text">Review</label>
-                <input type="text" name="text" id="text" value={formData.text} onChange={onFormChange} required></input>
-                <button type="submit">Submit</button>
-            </form>
+        <div className={style.reviewForm}>
+            <h5>Insert your review!</h5>
+            <div>
+                <form onSubmit={storeReview}>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" id="name" value={formData.name} onChange={onFormChange} required></input>
+                    <label htmlFor="vote">Vote</label>
+                    <input type="text" name="vote" id="vote" value={formData.vote} onChange={onFormChange} required></input>
+                    <label htmlFor="text">Review</label>
+                    <input type="text" name="text" id="text" value={formData.text} onChange={onFormChange} required></input>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </div>
-        
-        </>
     )
 }
 

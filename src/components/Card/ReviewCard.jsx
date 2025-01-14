@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 
 function ReviewCard({review}) {
-    const {vote, text} = review
+    const {name, vote, text} = review
 
     return(
         <div>
-            {vote}
-            {text}
+            <p>{name}</p>
+            <p>{vote} - {text}</p> 
         </div>
     )
 }
